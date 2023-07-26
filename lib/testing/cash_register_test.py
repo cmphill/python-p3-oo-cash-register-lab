@@ -9,7 +9,7 @@ class TestCashRegister:
     '''CashRegister in cash_register.py'''
 
     cash_register = CashRegister()
-    cash_register_with_discount = CashRegister(20)
+    cash_register_with_discount = CashRegister(discount=20)
 
     def reset_register_totals(self):
       self.cash_register.total = 0
@@ -109,6 +109,7 @@ class TestCashRegister:
       '''returns the total to 0.0 if all items have been removed'''
       self.cash_register.add_item("tomato", 1.76, 2)
       self.cash_register.void_last_transaction() 
+      self.cash_register.void_last_transaction()
       assert(self.cash_register.total == 0.0)
       self.reset_register_totals()
       
